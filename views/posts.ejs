@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %> 
+<h2> <%= title.toUpperCase() %></h2>
+<p> <%= content %></p>
+
+<h2 id="edith2">Edit Blog</h2>
+<form action="/posts/<%= slug %>" method="POST">
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title" value="<%= title %>"><br>
+  <label for="content">Content:</label><br>
+  <textarea id="content" name="content" value="<%= content %>"><%= content %></textarea><br>
+  <input type="submit" value="Submit">
+</form>
+<div  class="buttons">
+<div class="delete-form">
+<form action="/posts/delete/<%= slug %>" method="POST">
+  <input type="submit" value="Delete">
+</form>
+</div>
+
+<button><a href="/">Home</a></button>
+</div>	

@@ -1,0 +1,23 @@
+<%- include('partials/header') %> 
+<h1> Fatih´s Blogpage </h1>
+<ol>
+    <%if(blogPosts.length > 0) { %>
+    <%blogPosts.forEach((post) => { %>
+        <li>
+            <a href="/posts/<%= encodeURIComponent(post.slug) %>"><%= post.title.toUpperCase() %></a>
+
+        </li>
+   <% }); %>
+   <% } else { %>
+    <h2>There were no posts made yet</h2>
+    <% } %>
+</ol>
+
+<h2>Add a new Blog</h2>
+<form action="/submit" method="POST">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title"><br>
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content"></textarea>
+    <input type="submit" value="Submit">
+  </form>
